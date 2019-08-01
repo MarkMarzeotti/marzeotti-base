@@ -63,6 +63,12 @@ if ( ! function_exists( 'marzeotti_base_setup' ) ) :
 		 * Add support for wide and full width blocks.
 		 */
 		add_theme_support( 'align-wide' );
+
+		/**
+		 * Add various image sizes.
+		 */
+		add_image_size( 'share-facebook', 1200, 630, true );
+    	add_image_size( 'share-twitter', 1024, 512, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'marzeotti_base_setup' );
