@@ -1,0 +1,95 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    margin-bottom: 18px;
+    margin-top: 0;
+		
+    @include grid-media($medium-screen-grid) {
+        margin-bottom: 36px;
+    }
+}
+
+h1,
+.h1 {
+    font-size: 48px;
+    line-height: 57px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 90px;
+        line-height: 105px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 30px;
+    line-height: 35px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 36px;
+        line-height: 42px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 24px;
+    line-height: 36px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 30px;
+        line-height: 48px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 21px;
+    line-height: 33px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 24px;
+        line-height: 36px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 18px;
+    line-height: 30px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 21px;
+        line-height: 33px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 16px;
+    line-height: 27px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+p {
+    font-size: 16px;
+    line-height: 27px;
+		
+    @include grid-media($medium-screen-grid) {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}

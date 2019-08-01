@@ -1,0 +1,18 @@
+.header {
+
+    &__logo {
+        @include grid-column(2);
+
+        @include grid-media($medium-screen-grid) {
+            @include grid-column(6);
+        }
+    }
+
+    &__nav {
+        @include grid-column(2);
+
+        @include grid-media($medium-screen-grid) {
+            @include grid-column(6);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.footer {
+
+    &__copyright {
+        @include grid-column(4);
+
+        @include grid-media( $medium-screen-grid ) {
+            @include grid-column(6);
+        }
+    }
+
+    &__nav {
+        @include grid-column(4);
+
+        @include grid-media( $medium-screen-grid ) {
+            @include grid-column(6);
+        }
+    }
+}
