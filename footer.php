@@ -13,6 +13,12 @@
 
 	</div>
 
+	<div class="modals">
+		<div id="modal-1">
+			<button class="modal-close" aria-controls="modal-1" aria-expanded="false"><?php esc_html_e( 'Close', 'marzeotti-base' ); ?></button>
+		</div>
+	</div>
+
 	<footer id="footer" class="footer">
 		<div class="container">
 			<div class="footer__copyright">

@@ -1,15 +1,15 @@
-const webpack = require("webpack");
-const postcss = require("postcss");
+const webpack = require('webpack');
+const postcss = require('postcss');
 const BrowserSync = require('browser-sync-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const style = new ExtractTextPlugin({
-	filename: "dist/css/style.css",
-	disable: process.env.NODE_ENV === "development"
+	filename: 'dist/css/style.css',
+	disable: process.env.NODE_ENV === 'development'
 });
 const admin = new ExtractTextPlugin({
-	filename: "dist/css/admin.css",
-	disable: process.env.NODE_ENV === "development"
+	filename: 'dist/css/admin.css',
+	disable: process.env.NODE_ENV === 'development'
 });
 
 module.exports = {
@@ -31,6 +31,38 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.woff$/,
+				exclude: /(node_modules)/,
+				loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+				options: {
+					name: 'dist/fonts/[name].[ext]',
+				},
+			},
+			{ 
+				test: /\.ttf$/,
+				exclude: /(node_modules)/,
+				loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+				options: {
+					name: 'dist/fonts/[name].[ext]',
+				},
+			},
+			{ 
+				test: /\.eot$/,
+				exclude: /(node_modules)/,
+				loader: 'file-loader',
+				options: {
+					name: 'dist/fonts/[name].[ext]',
+				},
+			},
+			{ 
+				test: /\.svg$/,
+				exclude: /(node_modules)/,
+				loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+				options: {
+					name: 'dist/fonts/[name].[ext]',
+				},
+			},
+			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
 				loader: ['babel-loader?presets=env'],
@@ -38,7 +70,7 @@ module.exports = {
 			{
 				test: /\.json$/,
 				exclude: /(node_modules)/,
-				loader: "json-loader"
+				loader: 'json-loader'
 			},
 			{
 				test: /style\.(scss|css)$/,
