@@ -13,22 +13,32 @@ if ( ! function_exists( 'marzeotti_base_posted_on' ) ) :
 	 */
 	function marzeotti_base_posted_on() {
 		$time_string = '<time class="published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
+			esc_html( get_the_date() )
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
 			esc_html_x( 'Posted on %s', 'post date', 'marzeotti-base' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			$time_string
 		);
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="updated" datetime="%1$s">%2$s</time>';
+
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_modified_date( DATE_W3C ) ),
+				esc_html( get_the_modified_date() )
+			);
+
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'Updated on %s', 'post date', 'marzeotti-base' ),
+				$time_string
+			);
+		}
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 

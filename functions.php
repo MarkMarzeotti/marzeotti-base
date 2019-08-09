@@ -137,7 +137,7 @@ add_filter( 'nav_menu_css_class', 'marzeotti_base_discard_menu_classes', 10, 2 )
  * Set number of words to show in the excerpt.
  */
 function marzeotti_base_excerpt_length( $length ) {
-	return 15;
+	return 30;
 }
 add_filter( 'excerpt_length', 'marzeotti_base_excerpt_length', 999 );
   
