@@ -66,7 +66,7 @@ if ( ! function_exists('marzeotti_base_register_custom_post_types') ) {
                     'label'                 => __( $post_type['name_singular'], 'marzeotti_base' ),
                     'description'           => __( $post_type['name_plural'] . ' description', 'marzeotti_base' ),
                     'labels'                => $labels,
-                    'supports'              => array( 'title', 'editor', 'thumbnail' ),
+                    'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'author' ),
                     'taxonomies'            => $post_type['taxonomies'],
                     'hierarchical'          => false,
                     'public'                => true,

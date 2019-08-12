@@ -95,10 +95,10 @@ add_filter( 'feed_links_show_comments_feed', '__return_false' );
  * Enqueue scripts and styles.
  */
 function marzeotti_base_scripts() {
-	wp_enqueue_style( 'marzeotti-base-style', get_template_directory_uri() . '/dist/css/style.css' );
-	wp_enqueue_script( 'marzeotti-base-script', get_template_directory_uri() . '/dist/js/bundle.js', array( 'jquery' ), '20151215', true );
+	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css' );
+	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/bundle.js', array( 'jquery' ), '20151215', true );
 }
-// add_action( 'wp_enqueue_scripts', 'marzeotti_base_scripts' );
+add_action( 'wp_enqueue_scripts', 'marzeotti_base_scripts' );
 
 /**
  * Dequeue block editor base styles.
@@ -112,7 +112,7 @@ add_action( 'wp_print_styles', 'marzeotti_base_dequeue_styles', 100 );
  * Enqueue admin scripts and styles.
  */
 function marzeotti_base_admin_scripts() {
-	wp_enqueue_style( 'admin-styles', get_template_directory_uri() . '/assets/css/admin.css' );
+	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
 
@@ -164,7 +164,7 @@ function marzeotti_base_more_post_ajax(){
 
 	$query = new WP_Query( $args );
 	while ( $query->have_posts() ) : $query->the_post();
-		get_template_part('template-parts/content');
+		get_template_part( 'template-parts/content' );
 	endwhile;
 	exit;
 }
