@@ -106,7 +106,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		if ( ! empty( $args->walker->has_children ) ) {
 			array_push( $additional_classes, 'nav__item--has-children' );
 		}
-		if ( ! empty( $item->current ) ) {
+		if ( ! empty( $item->current ) || in_array( 'current-menu-item', $item->classes ) ) {
 			array_push( $additional_classes, 'nav__item--is-current' );
 		}
 		if ( ! empty( $item->current_item_ancestor ) ) {
