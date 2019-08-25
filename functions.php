@@ -21,8 +21,8 @@ if ( ! function_exists( 'marzeotti_base_setup' ) ) :
 		load_theme_textdomain( 'marzeotti-base', get_template_directory() . '/languages' );
 
 		/**
-		 * Add default posts and comments RSS feed links to head. 
-		 */ 
+		 * Add default posts and comments RSS feed links to head.
+		 */
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
@@ -96,9 +96,18 @@ add_filter( 'feed_links_show_comments_feed', '__return_false' );
  */
 function marzeotti_base_scripts() {
 	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css' );
-	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/bundle.js', array( 'jquery' ), '20151215', true );
+	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), '20151215', true );
 }
 add_action( 'wp_enqueue_scripts', 'marzeotti_base_scripts' );
+
+/**
+ * Enqueue admin scripts and styles.
+ */
+function marzeotti_base_admin_scripts() {
+	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css' );
+    wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js' );
+}
+add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
 
 /**
  * Dequeue block editor base styles.
@@ -107,14 +116,6 @@ function marzeotti_base_dequeue_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 }
 add_action( 'wp_print_styles', 'marzeotti_base_dequeue_styles', 100 );
-
-/**
- * Enqueue admin scripts and styles.
- */
-function marzeotti_base_admin_scripts() {
-	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css' );
-}
-add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
 
 /**
  * Add additional file extensions.
@@ -140,7 +141,7 @@ function marzeotti_base_excerpt_length( $length ) {
 	return 30;
 }
 add_filter( 'excerpt_length', 'marzeotti_base_excerpt_length', 999 );
-  
+
 /**
  * Set characters to show after excerpt.
  */

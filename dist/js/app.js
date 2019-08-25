@@ -76,10 +76,6 @@ __webpack_require__(2);
 
 __webpack_require__(3);
 
-__webpack_require__(4);
-
-__webpack_require__(5);
-
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
@@ -94,6 +90,21 @@ __webpack_require__(5);
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(4);
+
+__webpack_require__(5);
+
+(function ($) {
+	$(document).ready(function () {});
+})(jQuery);
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -209,7 +220,7 @@ __webpack_require__(5);
 })();
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -247,17 +258,6 @@ __webpack_require__(5);
 	}
 })();
 
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-(function ($) {
-	$(document).ready(function () {});
-})(jQuery);
-
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=app.js.map
