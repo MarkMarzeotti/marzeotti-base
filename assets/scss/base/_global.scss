@@ -1,13 +1,13 @@
 .container {
-    margin: 0 auto;
-    max-width: 1200px;
+	margin: 0 auto;
+	max-width: 1200px;
 }
 
 .header,
 .content,
 .footer {
-    float: left;
-    width: 100%;
+	float: left;
+	width: 100%;
 }
 
 .screen-reader-text {
@@ -43,18 +43,18 @@
 
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-facebook:before {

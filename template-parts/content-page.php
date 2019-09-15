@@ -18,10 +18,12 @@
 		<?php
 		the_content();
 
-		wp_link_pages( array(
-			'before' => '<div>' . esc_html__( 'Pages:', 'marzeotti-base' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div>' . esc_html__( 'Pages:', 'marzeotti_base' ),
+				'after'  => '</div>',
+			)
+		);
 		?>
 	</div>
 </article>

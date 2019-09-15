@@ -24,7 +24,8 @@ get_header();
 					<?php
 				endif;
 
-				while ( have_posts() ) : the_post();
+				while ( have_posts() ) :
+					the_post();
 
 					get_template_part( 'template-parts/content', get_post_type() );
 
@@ -32,12 +33,12 @@ get_header();
 
 				the_posts_navigation();
 
-			else :
+				else :
 
-				get_template_part( 'template-parts/content', 'none' );
+					get_template_part( 'template-parts/content', 'none' );
 
 			endif;
-			?>
+				?>
 
 		</main>
 		<?php get_sidebar(); ?>

@@ -6,6 +6,7 @@
  *
  * @package Marzeotti_Base
  */
+
 ?>
 
 <aside id="secondary" class="content__aside sidebar">
