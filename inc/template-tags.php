@@ -22,7 +22,7 @@ if ( ! function_exists( 'marzeotti_base_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'marzeotti_base' ),
+			esc_html_x( 'Posted on %s', 'post date', 'marzeotti-base' ),
 			$time_string
 		);
 
@@ -37,12 +37,12 @@ if ( ! function_exists( 'marzeotti_base_posted_on' ) ) :
 
 			$posted_on = sprintf(
 				/* translators: %s: post date. */
-				esc_html_x( 'Updated on %s', 'post date', 'marzeotti_base' ),
+				esc_html_x( 'Updated on %s', 'post date', 'marzeotti-base' ),
 				$time_string
 			);
 		}
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on">' . esc_html( $posted_on ) . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -54,11 +54,11 @@ if ( ! function_exists( 'marzeotti_base_posted_by' ) ) :
 	function marzeotti_base_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'marzeotti_base' ),
+			esc_html_x( 'by %s', 'post author', 'marzeotti-base' ),
 			'<span class="author"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . esc_html( $byline ) . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;

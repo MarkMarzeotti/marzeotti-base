@@ -8,11 +8,12 @@
     "build": "webpack",
     "watch": "webpack --watch"
   },
+  "repository": "git+https://github.com/MarkMarzeotti/marzeotti-base.git",
   "bin": {
     "webpack": "./node_modules/.bin/webpack"
   },
   "author": "Mark Marzeotti",
-  "license": "",
+  "license": "GPL-3.0",
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "babel-cli": "6.18.0",

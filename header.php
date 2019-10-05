@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'marzeotti_base' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'marzeotti-base' ); ?></a>
 
 	<header id="masthead" class="header">
 		<div class="container">
@@ -38,7 +38,7 @@
 			</div>
 
 			<nav id="site-navigation" class="header__nav nav">
-				<button class="nav__button" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marzeotti_base' ); ?></button>
+				<button class="nav__button" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marzeotti-base' ); ?></button>
 				<?php
 				wp_nav_menu(
 					array(

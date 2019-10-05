@@ -15,11 +15,11 @@ get_header();
 
 			<section>
 				<header>
-					<h1><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'marzeotti_base' ); ?></h1>
+					<h1><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'marzeotti-base' ); ?></h1>
 				</header>
 
 				<div>
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'marzeotti_base' ); ?></p>
+					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'marzeotti-base' ); ?></p>
 					<?php get_search_form(); ?>
 				</div>
 			</section>

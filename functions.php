@@ -16,9 +16,9 @@ if ( ! function_exists( 'marzeotti_base_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Marzeotti Base, use a find and replace
-		 * to change 'marzeotti_base' to the name of your theme in all the template files.
+		 * to change 'marzeotti-base' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'marzeotti_base', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'marzeotti-base', get_template_directory() . '/languages' );
 
 		/**
 		 * Add default posts and comments RSS feed links to head.
@@ -44,8 +44,8 @@ if ( ! function_exists( 'marzeotti_base_setup' ) ) :
 		 */
 		register_nav_menus(
 			array(
-				'primary-menu' => esc_html__( 'Primary Menu', 'marzeotti_base' ),
-				'footer-menu'  => esc_html__( 'Footer Menu', 'marzeotti_base' ),
+				'primary-menu' => esc_html__( 'Primary Menu', 'marzeotti-base' ),
+				'footer-menu'  => esc_html__( 'Footer Menu', 'marzeotti-base' ),
 			)
 		);
 
@@ -55,7 +55,8 @@ if ( ! function_exists( 'marzeotti_base_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support(
-			'custom-logo', array(
+			'custom-logo',
+			array(
 				'height'      => 250,
 				'width'       => 250,
 				'flex-width'  => true,
@@ -90,7 +91,7 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
  */
 function marzeotti_base_disable_comments_feed() {
 	/* translators: %s: homepage url */
-	wp_die( sprintf( __( 'No feed available, please visit the <a href="%s">homepage</a>!', 'marzeotti_base' ), esc_url( home_url( '/' ) ) ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+	wp_die( sprintf( __( 'No feed available, please visit the <a href="%s">homepage</a>!', 'marzeotti-base' ), esc_url( home_url( '/' ) ) ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 }
 add_action( 'do_feed_rss2_comments', 'marzeotti_base_disable_comments_feed', 1 );
 add_action( 'do_feed_atom_comments', 'marzeotti_base_disable_comments_feed', 1 );
@@ -100,8 +101,8 @@ add_filter( 'feed_links_show_comments_feed', '__return_false' );
  * Enqueue scripts and styles.
  */
 function marzeotti_base_scripts() {
-	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css' );
-	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), '20151215', true );
+	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 	wp_localize_script(
 		'marzeotti-base-script',
 		'marzeottiBaseGlobal',
@@ -117,8 +118,8 @@ add_action( 'wp_enqueue_scripts', 'marzeotti_base_scripts' );
  * Enqueue admin scripts and styles.
  */
 function marzeotti_base_admin_scripts() {
-	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css' );
-	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js' );
+	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css', array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
 

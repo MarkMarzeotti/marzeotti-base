@@ -35,7 +35,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'marzeotti_base' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'marzeotti-base' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -48,7 +48,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div>' . esc_html__( 'Pages:', 'marzeotti_base' ),
+				'before' => '<div>' . esc_html__( 'Pages:', 'marzeotti-base' ),
 				'after'  => '</div>',
 			)
 		);
