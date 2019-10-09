@@ -13,12 +13,6 @@
 
 	</div>
 
-	<div class="modals">
-		<div id="modal-1">
-			<button class="modal-close" aria-controls="modal-1" aria-expanded="false"><?php esc_html_e( 'Close', 'marzeotti-base' ); ?></button>
-		</div>
-	</div>
-
 	<footer id="footer" class="footer">
 		<div class="container">
 			<div class="footer__copyright">
@@ -26,17 +20,22 @@
 				<p>&copy; <?php echo esc_html( $marzeotti_base_date ); ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</p>
 			</div>
 
-			<nav class="footer__nav">
-				<?php
-				wp_nav_menu(
-					array(
-						'container'      => false,
-						'menu_class'     => false,
-						'theme_location' => 'footer-menu',
-					)
-				);
-				?>
-			</nav>
+			<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
+				<nav class="footer__nav nav">
+					<?php
+					wp_nav_menu(
+						array(
+							'container'      => false,
+							'menu_id'        => 'footer-menu',
+							'menu_class'     => 'nav__level',
+							'theme_location' => 'footer-menu',
+							'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+							'depth'          => 1,
+						)
+					);
+					?>
+				</nav>
+			<?php endif; ?>
 		</div>
 	</footer>
 </div>

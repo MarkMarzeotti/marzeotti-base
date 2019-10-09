@@ -37,19 +37,37 @@
 				<?php endif; ?>
 			</div>
 
-			<nav id="site-navigation" class="header__nav nav">
-				<button class="nav__button" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marzeotti-base' ); ?></button>
-				<?php
-				wp_nav_menu(
-					array(
-						'container'      => false,
-						'menu_class'     => 'nav__level',
-						'theme_location' => 'primary-menu',
-						'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
-					)
-				);
-				?>
-			</nav>
+			<?php if ( has_nav_menu( 'primary-menu' ) || has_nav_menu( 'button-menu' ) ) : ?>
+				<nav id="site-navigation" class="header__nav nav">
+					<button class="nav__button" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marzeotti-base' ); ?></button>
+					<?php
+					if ( has_nav_menu( 'primary-menu' ) ) :
+						wp_nav_menu(
+							array(
+								'container'      => false,
+								'menu_id'        => 'primary-menu',
+								'menu_class'     => 'nav__level',
+								'theme_location' => 'primary-menu',
+								'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+							)
+						);
+					endif;
+
+					if ( has_nav_menu( 'button-menu' ) ) :
+						wp_nav_menu(
+							array(
+								'container'      => false,
+								'menu_id'        => 'button-menu',
+								'menu_class'     => 'nav__level button-menu',
+								'theme_location' => 'button-menu',
+								'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+								'depth'          => 1,
+							)
+						);
+					endif;
+					?>
+				</nav>
+			<?php endif; ?>
 		</div>
 	</header>
 

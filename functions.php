@@ -7,75 +7,95 @@
  * @package Marzeotti_Base
  */
 
-if ( ! function_exists( 'marzeotti_base_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+function marzeotti_base_setup() {
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on Marzeotti Base, use a find and replace
+		* to change 'marzeotti-base' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'marzeotti-base', get_template_directory() . '/languages' );
+
 	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
+	 * Add default posts and comments RSS feed links to head.
 	 */
-	function marzeotti_base_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Marzeotti Base, use a find and replace
-		 * to change 'marzeotti-base' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'marzeotti-base', get_template_directory() . '/languages' );
+	add_theme_support( 'automatic-feed-links' );
 
-		/**
-		 * Add default posts and comments RSS feed links to head.
-		 */
-		add_theme_support( 'automatic-feed-links' );
+	/*
+		* Enable the title tag controlled by WordPress.
+		*/
+	add_theme_support( 'title-tag' );
 
-		/*
-		 * Enable the title tag controlled by WordPress.
-		 */
-		add_theme_support( 'title-tag' );
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+	/*
+		* Register menu locations.
+		*
+		* @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+		*/
+	register_nav_menus(
+		array(
+			'primary-menu' => esc_html__( 'Primary Menu', 'marzeotti-base' ),
+			'button-menu'  => esc_html__( 'Button Menu', 'marzeotti-base' ),
+			'footer-menu'  => esc_html__( 'Footer Menu', 'marzeotti-base' ),
+		)
+	);
 
-		/*
-		 * Register menu locations.
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
-		 */
-		register_nav_menus(
-			array(
-				'primary-menu' => esc_html__( 'Primary Menu', 'marzeotti-base' ),
-				'footer-menu'  => esc_html__( 'Footer Menu', 'marzeotti-base' ),
-			)
-		);
+	/**
+	 * Add support for core custom logo.
+	 *
+	 * @link https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
+	/**
+	 * Add support for wide and full width blocks.
+	 */
+	add_theme_support( 'align-wide' );
 
-		/**
-		 * Add support for wide and full width blocks.
-		 */
-		add_theme_support( 'align-wide' );
+	/**
+	 * Add various image sizes.
+	 */
+	add_image_size( 'share-facebook', 1200, 630, true );
+	add_image_size( 'share-twitter', 1024, 512, true );
 
-		/**
-		 * Add various image sizes.
-		 */
-		add_image_size( 'share-facebook', 1200, 630, true );
-		add_image_size( 'share-twitter', 1024, 512, true );
-	}
-endif;
+	/**
+	 * Add a custom color pallete
+	 */
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => __( 'Black', 'marzeotti-base' ),
+			'slug'  => 'black',
+			'color'	=> '#000000',
+		),
+		array(
+			'name'  => __( 'White', 'marzeotti-base' ),
+			'slug'  => 'white',
+			'color' => '#ffffff',
+		),
+		array(
+			'name'  => __( 'Gallery', 'marzeotti-base' ),
+			'slug'  => 'gallery',
+			'color' => '#eeeeee',
+		),
+	) );
+}
 add_action( 'after_setup_theme', 'marzeotti_base_setup' );
 
 /**
