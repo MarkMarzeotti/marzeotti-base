@@ -42,7 +42,7 @@ if ( ! function_exists( 'marzeotti_base_posted_on' ) ) :
 			);
 		}
 
-		echo '<span class="posted-on">' . esc_html( $posted_on ) . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
+		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
@@ -58,7 +58,7 @@ if ( ! function_exists( 'marzeotti_base_posted_by' ) ) :
 			'<span class="author"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . esc_html( $byline ) . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
+		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore Standard.Category.SniffName.ErrorCode
 
 	}
 endif;
