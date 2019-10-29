@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>">
+<article id="post-<?php the_ID(); ?>" class="post__item">
 	<header>
 		<?php
 		if ( is_singular() ) :
@@ -20,7 +20,7 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div>
+			<div class="post__meta">
 				<?php
 				marzeotti_base_posted_on();
 				marzeotti_base_posted_by();
@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header>
 
-	<div>
+	<div class="post__content">
 		<?php
 		the_content(
 			sprintf(

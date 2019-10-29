@@ -10,21 +10,19 @@
 get_header();
 ?>
 
-	<div class="container">
-		<main id="main" class="content__main">
+	<main id="main" class="content__page">
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'template-parts/content', 'page' );
 
-			endwhile;
-			?>
+		endwhile;
+		?>
 
-		</main>
-		<?php get_sidebar(); ?>
-	</div>
+	</main>
+	<?php get_sidebar(); ?>
 
 <?php
 get_footer();

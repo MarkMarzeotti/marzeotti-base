@@ -10,20 +10,18 @@
 get_header();
 ?>
 
-	<div class="container">
-		<main id="main" class="content__blocks">
+	<main id="main" class="content__front">
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-				the_content();
+			the_content();
 
-			endwhile;
-			?>
+		endwhile;
+		?>
 
-		</main>
-	</div>
+	</main>
 
 <?php
 get_footer();

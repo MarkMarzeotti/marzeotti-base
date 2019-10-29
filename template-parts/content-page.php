@@ -9,12 +9,12 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>">
+<article id="post-<?php the_ID(); ?>" class="post__item">
 	<header>
 		<?php the_title( '<h1>', '</h1>' ); ?>
 	</header>
 
-	<div>
+	<div class="post__content">
 		<?php
 		the_content();
 

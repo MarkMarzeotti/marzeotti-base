@@ -10,40 +10,38 @@
 get_header();
 ?>
 
-	<section class="container">
-		<main id="main" class="content__main">
+	<main id="main" class="content__search">
 
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-				<header>
-					<h1>
-						<?php
-						/* translators: %s: search query. */
-						printf( esc_html__( 'Search Results for: %s', 'marzeotti-base' ), '<span>' . get_search_query() . '</span>' );
-						?>
-					</h1>
-				</header>
+			<header>
+				<h1>
+					<?php
+					/* translators: %s: search query. */
+					printf( esc_html__( 'Search Results for: %s', 'marzeotti-base' ), '<span>' . get_search_query() . '</span>' );
+					?>
+				</h1>
+			</header>
 
-				<?php
-				while ( have_posts() ) :
-					the_post();
+			<?php
+			while ( have_posts() ) :
+				the_post();
 
-					get_template_part( 'template-parts/content', 'search' );
+				get_template_part( 'template-parts/content', 'search' );
 
-				endwhile;
+			endwhile;
 
-				the_posts_navigation();
+			the_posts_navigation();
 
-				else :
+			else :
 
-					get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content', 'none' );
 
-			endif;
-				?>
+		endif;
+			?>
 
-		</main>
-		<?php get_sidebar(); ?>
-	</section>
+	</main>
+	<?php get_sidebar(); ?>
 
 <?php
 get_footer();

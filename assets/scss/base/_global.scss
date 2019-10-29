@@ -1,6 +1,10 @@
 .container {
 	margin: 0 auto;
 	max-width: 1200px;
+
+	.container {
+		@include grid-collapse;
+	}
 }
 
 .header,
@@ -39,33 +43,4 @@
 		width: auto;
 		z-index: 100000; /* Above WP toolbar. */
 	}
-}
-
-
-[class^="icon-"], [class*=" icon-"] {
-	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'icomoon' !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon-facebook:before {
-	content: "\ea90";
-}
-.icon-instagram:before {
-	content: "\ea92";
-}
-.icon-twitter:before {
-	content: "\ea96";
-}
-.icon-github:before {
-	content: "\eab0";
 }

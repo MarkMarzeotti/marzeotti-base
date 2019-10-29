@@ -9,12 +9,12 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>">
+<article id="post-<?php the_ID(); ?>" class="post__item">
 	<header>
 		<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div>
+		<div class="post__meta">
 			<?php
 			marzeotti_base_posted_on();
 			marzeotti_base_posted_by();
@@ -23,7 +23,7 @@
 		<?php endif; ?>
 	</header>
 
-	<div>
+	<div class="post__content">
 		<?php the_excerpt(); ?>
 	</div>
 </article>

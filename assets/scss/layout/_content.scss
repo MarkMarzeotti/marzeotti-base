@@ -1,18 +1,10 @@
 .content {
 
-	&__main {
+	&__single {
 		@include grid-column(4);
 
 		@include grid-media($medium-screen-grid) {
 			@include grid-column(8);
-		}
-	}
-
-	&__full-width {
-		@include grid-column(4);
-
-		@include grid-media($medium-screen-grid) {
-			@include grid-column(12);
 		}
 	}
 
