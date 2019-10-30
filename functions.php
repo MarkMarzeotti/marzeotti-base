@@ -78,44 +78,28 @@ function marzeotti_base_setup() {
 	/**
 	 * Add a custom color pallete
 	 */
-	add_theme_support( 'editor-color-palette', array(
+	add_theme_support(
+		'editor-color-palette',
 		array(
-			'name'  => __( 'Black', 'marzeotti-base' ),
-			'slug'  => 'black',
-			'color'	=> '#000000',
-		),
-		array(
-			'name'  => __( 'White', 'marzeotti-base' ),
-			'slug'  => 'white',
-			'color' => '#ffffff',
-		),
-		array(
-			'name'  => __( 'Gallery', 'marzeotti-base' ),
-			'slug'  => 'gallery',
-			'color' => '#eeeeee',
-		),
-	) );
+			array(
+				'name'  => __( 'Black', 'marzeotti-base' ),
+				'slug'  => 'black',
+				'color' => '#000000',
+			),
+			array(
+				'name'  => __( 'White', 'marzeotti-base' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name'  => __( 'Gallery', 'marzeotti-base' ),
+				'slug'  => 'gallery',
+				'color' => '#eeeeee',
+			),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'marzeotti_base_setup' );
-
-/**
- * Remove emoji styles.
- */
-remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'wp_print_styles', 'print_emoji_styles' );
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-remove_action( 'admin_print_styles', 'print_emoji_styles' );
-
-/**
- * Disable comment feeds.
- */
-function marzeotti_base_disable_comments_feed() {
-	/* translators: %s: homepage url */
-	wp_die( sprintf( __( 'No feed available, please visit the <a href="%s">homepage</a>!', 'marzeotti-base' ), esc_url( home_url( '/' ) ) ) ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
-}
-add_action( 'do_feed_rss2_comments', 'marzeotti_base_disable_comments_feed', 1 );
-add_action( 'do_feed_atom_comments', 'marzeotti_base_disable_comments_feed', 1 );
-add_filter( 'feed_links_show_comments_feed', '__return_false' );
 
 /**
  * Enqueue scripts and styles.
@@ -143,14 +127,6 @@ function marzeotti_base_admin_scripts() {
 	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
-
-/**
- * Dequeue block editor base styles.
- */
-function marzeotti_base_dequeue_styles() {
-	wp_dequeue_style( 'wp-block-library' );
-}
-add_action( 'wp_print_styles', 'marzeotti_base_dequeue_styles', 100 );
 
 /**
  * Add additional file extensions.
@@ -193,31 +169,6 @@ function marzeotti_base_excerpt_more( $more ) {
 	return '...';
 }
 add_filter( 'excerpt_more', 'marzeotti_base_excerpt_more' );
-
-/**
- * Call more posts on posts page.
- */
-function marzeotti_base_more_post_ajax() {
-	check_ajax_referer( 'marzeotti_base_more_post_ajax_nonce' );
-	$return = wp_unslash( $_POST ); // phpcs:ignore WordPress.VIP.SuperGlobalInputUsage.AccessDetected
-	$offset = sanitize_key( $return['offset'] );
-	$ppp    = sanitize_key( $return['ppp'] );
-
-	$args = array(
-		'post_type'      => 'post',
-		'posts_per_page' => $ppp,
-		'offset'         => $offset,
-	);
-
-	$query = new WP_Query( $args );
-	while ( $query->have_posts() ) :
-		$query->the_post();
-		get_template_part( 'template-parts/content' );
-	endwhile;
-	exit;
-}
-add_action( 'wp_ajax_marzeotti_base_more_post_ajax', 'marzeotti_base_more_post_ajax' );
-add_action( 'wp_ajax_nopriv_marzeotti_base_more_post_ajax', 'marzeotti_base_more_post_ajax' );
 
 /**
  * Custom template tags for this theme.
