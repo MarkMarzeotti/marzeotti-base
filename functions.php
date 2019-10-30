@@ -10,7 +10,7 @@
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
-function marzeotti_base_setup() {
+function marz_setup() {
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
@@ -99,12 +99,12 @@ function marzeotti_base_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'marzeotti_base_setup' );
+add_action( 'after_setup_theme', 'marz_setup' );
 
 /**
  * Enqueue scripts and styles.
  */
-function marzeotti_base_scripts() {
+function marz_scripts() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:400,400i,700,700i', array(), '1' );
 	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
 	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
@@ -113,31 +113,31 @@ function marzeotti_base_scripts() {
 		'marzeottiBaseGlobal',
 		array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-			'nonce'   => wp_create_nonce( 'marzeotti_base_more_post_ajax_nonce' ),
+			'nonce'   => wp_create_nonce( 'marz_more_post_ajax_nonce' ),
 		)
 	);
 }
-add_action( 'wp_enqueue_scripts', 'marzeotti_base_scripts' );
+add_action( 'wp_enqueue_scripts', 'marz_scripts' );
 
 /**
  * Enqueue admin scripts and styles.
  */
-function marzeotti_base_admin_scripts() {
+function marz_admin_scripts() {
 	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css', array(), wp_get_theme()->get( 'Version' ) );
 	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 }
-add_action( 'admin_enqueue_scripts', 'marzeotti_base_admin_scripts' );
+add_action( 'admin_enqueue_scripts', 'marz_admin_scripts' );
 
 /**
  * Add additional file extensions.
  *
  * @param array $mime_types An array of file types allowed.
  */
-function marzeotti_base_add_mime_types( $mime_types ) {
+function marz_add_mime_types( $mime_types ) {
 	$mime_types['svg'] = 'image/svg+xml';
 	return $mime_types;
 }
-add_filter( 'upload_mimes', 'marzeotti_base_add_mime_types', 1, 1 );
+add_filter( 'upload_mimes', 'marz_add_mime_types', 1, 1 );
 
 /**
  * Remove WordPress base menu classes.
@@ -145,30 +145,30 @@ add_filter( 'upload_mimes', 'marzeotti_base_add_mime_types', 1, 1 );
  * @param array  $classes An array of classes for this menu item.
  * @param object $item    The post object for the menu item.
  */
-function marzeotti_base_discard_menu_classes( $classes, $item ) {
+function marz_discard_menu_classes( $classes, $item ) {
 	return (array) get_post_meta( $item->ID, '_menu_item_classes', true );
 }
-add_filter( 'marzeotti_base_nav_menu_css_class', 'marzeotti_base_discard_menu_classes', 10, 2 );
+add_filter( 'marz_nav_menu_css_class', 'marz_discard_menu_classes', 10, 2 );
 
 /**
  * Set number of words to show in the excerpt.
  *
  * @param int $length Allowed length of the excerpt.
  */
-function marzeotti_base_excerpt_length( $length ) {
+function marz_excerpt_length( $length ) {
 	return 30;
 }
-add_filter( 'excerpt_length', 'marzeotti_base_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'marz_excerpt_length', 999 );
 
 /**
  * Set characters to show after excerpt.
  *
  * @param string $more The text to display at the end of a generated excerpt.
  */
-function marzeotti_base_excerpt_more( $more ) {
+function marz_excerpt_more( $more ) {
 	return '...';
 }
-add_filter( 'excerpt_more', 'marzeotti_base_excerpt_more' );
+add_filter( 'excerpt_more', 'marz_excerpt_more' );
 
 /**
  * Custom template tags for this theme.

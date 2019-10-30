@@ -16,8 +16,8 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="post__meta">
 			<?php
-			marzeotti_base_posted_on();
-			marzeotti_base_posted_by();
+			marz_posted_on();
+			marz_posted_by();
 			?>
 		</div>
 		<?php endif; ?>

@@ -16,8 +16,8 @@
 	<footer id="footer" class="footer">
 		<div class="container">
 			<div class="footer__copyright">
-				<?php $marzeotti_base_date = gmdate( 'Y' ); ?>
-				<p>&copy; <?php echo esc_html( $marzeotti_base_date ); ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</p>
+				<?php $marz_date = gmdate( 'Y' ); ?>
+				<p>&copy; <?php echo esc_html( $marz_date ); ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</p>
 			</div>
 
 			<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
@@ -29,7 +29,7 @@
 							'menu_id'        => 'footer-menu',
 							'menu_class'     => 'nav__level',
 							'theme_location' => 'footer-menu',
-							'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+							'walker'         => new Marz_Walker_Nav_Menu(),
 							'depth'          => 1,
 						)
 					);

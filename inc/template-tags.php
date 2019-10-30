@@ -10,7 +10,7 @@
 /**
  * Prints HTML with meta information for the current post-date/time.
  */
-function marzeotti_base_posted_on() {
+function marz_posted_on() {
 	$time_string = '<time class="published updated" datetime="%1$s">%2$s</time>';
 
 	$time_string = sprintf(
@@ -48,7 +48,7 @@ function marzeotti_base_posted_on() {
 /**
  * Prints HTML with meta information for the current author.
  */
-function marzeotti_base_posted_by() {
+function marz_posted_by() {
 	$byline = sprintf(
 		/* translators: %s: post author. */
 		esc_html_x( 'by %s', 'post author', 'marzeotti-base' ),

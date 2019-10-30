@@ -48,7 +48,7 @@
 								'menu_id'        => 'primary-menu',
 								'menu_class'     => 'nav__level',
 								'theme_location' => 'primary-menu',
-								'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+								'walker'         => new Marz_Walker_Nav_Menu(),
 							)
 						);
 					endif;
@@ -60,7 +60,7 @@
 								'menu_id'        => 'button-menu',
 								'menu_class'     => 'nav__level button-menu',
 								'theme_location' => 'button-menu',
-								'walker'         => new Marzeotti_Base_Walker_Nav_Menu(),
+								'walker'         => new Marz_Walker_Nav_Menu(),
 								'depth'          => 1,
 							)
 						);

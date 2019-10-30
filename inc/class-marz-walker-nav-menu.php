@@ -12,7 +12,7 @@
  *
  * @see Walker
  */
-class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
+class Marz_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	/**
 	 * Starts the list before the elements are added.
@@ -46,7 +46,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param stdClass $args    An object of `wp_nav_menu()` arguments.
 		 * @param int      $depth   Depth of menu item. Used for padding.
 		 */
-		$class_names = join( ' ', apply_filters( 'marzeotti_base_nav_menu_submenu_css_class', $classes, $args, $depth ) );
+		$class_names = join( ' ', apply_filters( 'marz_nav_menu_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="nav__level ' . esc_attr( $class_names ) . '"' : ' class="nav__level"';
 
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
@@ -121,7 +121,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param WP_Post  $item  Menu item data object.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$args = apply_filters( 'marzeotti_base_nav_menu_item_args', $args, $item, $depth );
+		$args = apply_filters( 'marz_nav_menu_item_args', $args, $item, $depth );
 
 		/**
 		 * Filters the CSS classes applied to a menu item's list item element.
@@ -134,7 +134,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param stdClass $args    An object of wp_nav_menu() arguments.
 		 * @param int      $depth   Depth of menu item. Used for padding.
 		 */
-		$filtered_classes = apply_filters( 'marzeotti_base_nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
+		$filtered_classes = apply_filters( 'marz_nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
 		$class_names      = array_merge( array_filter( $filtered_classes ), array_filter( $additional_classes ) );
 		$class_names      = join( ' ', $class_names );
 		$class_names      = $class_names ? ' class="nav__item ' . esc_attr( $class_names ) . '"' : ' class="nav__item"';
@@ -171,7 +171,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param stdClass $args  An object of wp_nav_menu() arguments.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$atts = apply_filters( 'marzeotti_base_nav_menu_link_attributes', $atts, $item, $args, $depth );
+		$atts = apply_filters( 'marz_nav_menu_link_attributes', $atts, $item, $args, $depth );
 
 		$attributes = '';
 		foreach ( $atts as $attr => $value ) {
@@ -182,7 +182,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		}
 
 		/** This filter is documented in wp-includes/post-template.php */
-		$title = apply_filters( 'marzeotti_base_the_title', $item->title, $item->ID );
+		$title = apply_filters( 'marz_the_title', $item->title, $item->ID );
 
 		/**
 		 * Filters a menu item's title.
@@ -194,7 +194,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param stdClass $args  An object of wp_nav_menu() arguments.
 		 * @param int      $depth Depth of menu item. Used for padding.
 		 */
-		$title = apply_filters( 'marzeotti_base_nav_menu_item_title', $title, $item, $args, $depth );
+		$title = apply_filters( 'marz_nav_menu_item_title', $title, $item, $args, $depth );
 
 		$item_output  = $args->before;
 		$item_output .= '<a' . $attributes . '>';
@@ -216,7 +216,7 @@ class Marzeotti_Base_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param int      $depth       Depth of menu item. Used for padding.
 		 * @param stdClass $args        An object of wp_nav_menu() arguments.
 		 */
-		$output .= apply_filters( 'marzeotti_base_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'marz_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
 	/**
