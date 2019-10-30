@@ -70,12 +70,6 @@ function marz_setup() {
 	add_theme_support( 'align-wide' );
 
 	/**
-	 * Add various image sizes.
-	 */
-	add_image_size( 'share-facebook', 1200, 630, true );
-	add_image_size( 'share-twitter', 1024, 512, true );
-
-	/**
 	 * Add a custom color pallete
 	 */
 	add_theme_support(
