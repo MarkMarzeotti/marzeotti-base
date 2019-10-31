@@ -132,17 +132,6 @@ function marz_admin_scripts() {
 add_action( 'admin_enqueue_scripts', 'marz_admin_scripts' );
 
 /**
- * Add additional file extensions.
- *
- * @param array $mime_types An array of file types allowed.
- */
-function marz_add_mime_types( $mime_types ) {
-	$mime_types['svg'] = 'image/svg+xml';
-	return $mime_types;
-}
-add_filter( 'upload_mimes', 'marz_add_mime_types', 1, 1 );
-
-/**
  * Remove WordPress base menu classes.
  *
  * @param array  $classes An array of classes for this menu item.
