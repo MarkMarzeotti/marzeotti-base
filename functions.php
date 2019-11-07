@@ -180,4 +180,4 @@ require get_template_directory() . '/inc/post-types-taxonomies.php';
 /**
  * A custom walker class to modify the navigation markup.
  */
-require get_template_directory() . '/inc/class-marzeotti-base-walker-nav-menu.php';
+require get_template_directory() . '/inc/class-marz-walker-nav-menu.php';
