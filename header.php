@@ -39,33 +39,43 @@
 
 			<?php if ( has_nav_menu( 'primary-menu' ) || has_nav_menu( 'button-menu' ) ) : ?>
 				<nav id="site-navigation" class="header__nav nav">
-					<button class="nav__button" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'marzeotti-base' ); ?></button>
-					<?php
-					if ( has_nav_menu( 'primary-menu' ) ) :
-						wp_nav_menu(
-							array(
-								'container'      => false,
-								'menu_id'        => 'primary-menu',
-								'menu_class'     => 'nav__level',
-								'theme_location' => 'primary-menu',
-								'walker'         => new Marz_Walker_Nav_Menu(),
-							)
-						);
-					endif;
+					<button id="menu-button" class="nav__button" aria-controls="primary-menu" aria-expanded="false">
+						<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'marzeotti-base' ); ?></span>
+						<span class="hamburger">
+							<span class="hamburger__top"></span>
+							<span class="hamburger__middle"></span>
+							<span class="hamburger__bottom"></span>
+						</span>
+					</button>
 
-					if ( has_nav_menu( 'button-menu' ) ) :
-						wp_nav_menu(
-							array(
-								'container'      => false,
-								'menu_id'        => 'button-menu',
-								'menu_class'     => 'nav__level button-menu',
-								'theme_location' => 'button-menu',
-								'walker'         => new Marz_Walker_Nav_Menu(),
-								'depth'          => 1,
-							)
-						);
-					endif;
-					?>
+					<div class="nav__container">
+						<?php
+						if ( has_nav_menu( 'primary-menu' ) ) :
+							wp_nav_menu(
+								array(
+									'container'      => false,
+									'menu_id'        => 'primary-menu',
+									'menu_class'     => 'nav__level',
+									'theme_location' => 'primary-menu',
+									'walker'         => new Marz_Walker_Nav_Menu(),
+								)
+							);
+						endif;
+
+						if ( has_nav_menu( 'button-menu' ) ) :
+							wp_nav_menu(
+								array(
+									'container'      => false,
+									'menu_id'        => 'button-menu',
+									'menu_class'     => 'nav__level button-menu',
+									'theme_location' => 'button-menu',
+									'walker'         => new Marz_Walker_Nav_Menu(),
+									'depth'          => 1,
+								)
+							);
+						endif;
+						?>
+					</div>
 				</nav>
 			<?php endif; ?>
 		</div>

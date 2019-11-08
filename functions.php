@@ -12,11 +12,11 @@
  */
 function marz_setup() {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on Marzeotti Base, use a find and replace
-		* to change 'marzeotti-base' to the name of your theme in all the template files.
-		*/
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on Marzeotti Base, use a find and replace
+	 * to change 'marzeotti-base' to the name of your theme in all the template files.
+	 */
 	load_theme_textdomain( 'marzeotti-base', get_template_directory() . '/languages' );
 
 	/**
@@ -25,22 +25,22 @@ function marz_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-		* Enable the title tag controlled by WordPress.
-		*/
+	 * Enable the title tag controlled by WordPress.
+	 */
 	add_theme_support( 'title-tag' );
 
 	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
 	add_theme_support( 'post-thumbnails' );
 
 	/*
-		* Register menu locations.
-		*
-		* @link https://developer.wordpress.org/reference/functions/register_nav_menus/
-		*/
+	 * Register menu locations.
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+	 */
 	register_nav_menus(
 		array(
 			'primary-menu' => esc_html__( 'Primary Menu', 'marzeotti-base' ),
@@ -100,7 +100,7 @@ add_action( 'after_setup_theme', 'marz_setup' );
  */
 function marz_add_google_analytics() {
 	wp_enqueue_script( 'google-analytics', 'https://www.googletagmanager.com/gtag/js?id=UA-00000000-0', array(), '1.0', false );
-	wp_add_inline_script( 'mytheme-typekit', 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-00000000-0\');' );
+	wp_add_inline_script( 'marz-analytics', 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-00000000-0\');' );
 }
 add_action( 'wp_enqueue_scripts', 'marz_add_google_analytics' );
 
