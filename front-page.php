@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="main" class="content__front">
+	<main id="main" class="content__front content__blocks">
 
 		<?php
 		while ( have_posts() ) :

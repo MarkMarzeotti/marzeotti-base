@@ -22,18 +22,20 @@
 
 			<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
 				<nav class="footer__nav nav">
-					<?php
-					wp_nav_menu(
-						array(
-							'container'      => false,
-							'menu_id'        => 'footer-menu',
-							'menu_class'     => 'nav__level',
-							'theme_location' => 'footer-menu',
-							'walker'         => new Marz_Walker_Nav_Menu(),
-							'depth'          => 1,
-						)
-					);
-					?>
+					<div class="nav__container">
+						<?php
+						wp_nav_menu(
+							array(
+								'container'      => false,
+								'menu_id'        => 'footer-menu',
+								'menu_class'     => 'nav__level',
+								'theme_location' => 'footer-menu',
+								'walker'         => new Marz_Walker_Nav_Menu(),
+								'depth'          => 1,
+							)
+						);
+						?>
+					</div>
 				</nav>
 			<?php endif; ?>
 		</div>

@@ -1,5 +1,11 @@
 .footer {
 
+	.container {
+		align-items: center;
+		display: flex;
+		flex-flow: row wrap;
+	}
+
 	&__copyright {
 		@include grid-column(4);
 

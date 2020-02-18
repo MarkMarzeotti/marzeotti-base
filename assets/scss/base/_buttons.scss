@@ -26,7 +26,7 @@ input[type=button],
 	transition: all 300ms ease;
 
 	&:hover {
-		color: lighten($color__black, 10%);
+		background-color: rgba($color__black, .7);
 	}
 
 	&.hidden {
@@ -49,7 +49,5 @@ input[type=button],
 .btn a,
 .btn a:visited {
 	color: $color__white;
-	margin: -15px -30px -13px;
-	padding: 15px 30px 13px;
 	text-decoration: none;
 }

@@ -163,6 +163,49 @@ function marz_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'marz_excerpt_more' );
 
 /**
+ * Only allow certain blocks to begin with.
+ *
+ * @param array $allowed_blocks The list of all allowed Gutenberg blocks.
+ */
+function marz_allowed_block_types( $allowed_blocks ) {
+	return array(
+		'core/image',
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+		'core/gallery',
+		'core/quote',
+		'core/table',
+		'core/button',
+		'core/columns',
+		'core/separator',
+		'core/video',
+		'core-embed/youtube',
+		'core-embed/twitter',
+		'core-embed/instagram',
+		'core-embed/vimeo'
+	);
+}
+add_filter( 'allowed_block_types', 'marz_allowed_block_types' );
+
+/**
+ * Do not allow user to change font size.
+ */
+function marz_disable_font_sizes() {
+    // removes the text box where users can enter custom pixel sizes
+    add_theme_support( 'disable-custom-font-sizes' );
+    // forces the dropdown for font sizes to only contain "normal"
+    add_theme_support( 'editor-font-sizes', array(
+        array(
+            'name' => 'Normal',
+            'size' => 16,
+            'slug' => 'normal'
+        )
+    ) );
+}
+add_action( 'after_setup_theme', 'marz_disable_font_sizes' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
