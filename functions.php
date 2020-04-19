@@ -96,15 +96,6 @@ function marz_setup() {
 add_action( 'after_setup_theme', 'marz_setup' );
 
 /**
- * Add Google Analytics scripts to the head.
- */
-function marz_add_google_analytics() {
-	wp_enqueue_script( 'google-analytics', 'https://www.googletagmanager.com/gtag/js?id=UA-00000000-0', array(), '1.0', false );
-	wp_add_inline_script( 'marz-analytics', 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-00000000-0\');' );
-}
-add_action( 'wp_enqueue_scripts', 'marz_add_google_analytics' );
-
-/**
  * Enqueue scripts and styles.
  */
 function marz_scripts() {
