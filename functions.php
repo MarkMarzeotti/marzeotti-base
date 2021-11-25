@@ -100,8 +100,8 @@ add_action( 'after_setup_theme', 'marz_setup' );
  */
 function marz_scripts() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:400,400i,700,700i', array(), '1' );
-	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), wp_get_theme()->get( 'Version' ) );
-	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_style( 'marzeotti-base-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), filemtime( get_template_directory() . '/dist/css/style.css' ) );
+	wp_enqueue_script( 'marzeotti-base-script', get_stylesheet_directory_uri() . '/dist/js/app.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/app.js' ), true );
 	wp_localize_script(
 		'marzeotti-base-script',
 		'marzeottiBaseGlobal',
@@ -117,8 +117,8 @@ add_action( 'wp_enqueue_scripts', 'marz_scripts' );
  * Enqueue admin scripts and styles.
  */
 function marz_admin_scripts() {
-	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css', array(), wp_get_theme()->get( 'Version' ) );
-	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_style( 'admin-styles', get_stylesheet_directory_uri() . '/dist/css/admin.css', array(), filemtime( get_template_directory() . '/dist/css/admin.css' ) );
+	wp_enqueue_script( 'admin-script', get_stylesheet_directory_uri() . '/dist/js/admin.js', array( 'jquery' ), filemtime( get_template_directory() . '/dist/js/admin.js' ), true );
 }
 add_action( 'admin_enqueue_scripts', 'marz_admin_scripts' );
 
